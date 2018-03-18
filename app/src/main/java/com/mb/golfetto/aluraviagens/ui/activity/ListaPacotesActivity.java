@@ -1,5 +1,6 @@
 package com.mb.golfetto.aluraviagens.ui.activity;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ListView;
@@ -22,6 +23,9 @@ public class ListaPacotesActivity extends AppCompatActivity {
 
         setTitle(TITULO_APPABAR);
         configuraLista();
+
+        Intent intent = new Intent(this, ResumoPacoteActivity.class);
+        startActivity(intent);
 
     }
 
