@@ -1,12 +1,13 @@
 package com.mb.golfetto.aluraviagens.ui.model;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 /**
  * Created by Guilherme on 27/02/2018.
  */
 
-public class Pacote {
+public class Pacote implements Serializable {
 
     private final String local;
     private final String imagem;

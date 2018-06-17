@@ -3,6 +3,8 @@ package com.mb.golfetto.aluraviagens.ui.activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.mb.golfetto.aluraviagens.R;
@@ -12,9 +14,12 @@ import com.mb.golfetto.aluraviagens.ui.model.Pacote;
 
 import java.util.List;
 
+import static com.mb.golfetto.aluraviagens.ui.activity.PacoteActivityConstantes.CHAVE_PACOTE;
+
 public class ListaPacotesActivity extends AppCompatActivity {
 
     public static final String TITULO_APPABAR = "Pacotes";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,15 +29,24 @@ public class ListaPacotesActivity extends AppCompatActivity {
         setTitle(TITULO_APPABAR);
         configuraLista();
 
-        Intent intent = new Intent(this, ResumoPacoteActivity.class);
-        startActivity(intent);
-
     }
 
 
     private void configuraLista() {
-        List<Pacote> pacotes = new PacoteDAO().lista();
+        final List<Pacote> pacotes = new PacoteDAO().lista();
         ListView listaDePacotes = findViewById(R.id.lista_pacotes_listview);
         listaDePacotes.setAdapter(new ListaPacotesAdapter(pacotes, this));
+        listaDePacotes.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                vaiParaResumoPacote(pacotes.get(i));
+            }
+        });
+    }
+
+    private void vaiParaResumoPacote(Pacote pacote) {
+        Intent intent = new Intent(ListaPacotesActivity.this, ResumoPacoteActivity.class);
+        intent.putExtra(CHAVE_PACOTE, pacote);
+        startActivity(intent);
     }
 }

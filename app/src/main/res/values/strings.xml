@@ -6,4 +6,9 @@
     <string name="preco_final">Preço final:</string>
     <string name="realizar_pagamento">Realizar pagamento</string>
     <string name="imagem_pacote">Imagem Pacote</string>
+    <string name="parabens">Parabéns!</string>
+    <string name="compra_realizada_com_sucesso">Compra realizada com sucesso :)</string>
+    <string name="confira_o_resumo_da_compra">Confira o resumo da compra:</string>
+    <string name="conteudo_banner_string_banner_inicial_dos_pacotes">conteudo banner @string/banner_inicial_dos_pacotes</string>
+    <string name="imagem_do_string_imagem_pacote">imagem do @string/imagem_pacote</string>
 </resources>
